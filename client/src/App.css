@@ -1,0 +1,594 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    margin: 0 auto;
+    max-width: 1680px;
+}
+/* ShoppingCart */
+.ItemsRow div {
+    height: 100px;
+    display: inline-block;
+}
+.ItemsRow img {
+    height: 100%;
+}
+.ItemsRow .image-29 {
+    height: auto;
+    width: 90%;
+}
+.ItemsRow .pad {
+    padding: 25px 0;
+    font-weight: 500;
+}
+.ItemsRow .sum-item {
+    padding: 5px 0;
+}
+div .remove {
+    font-size: x-small
+}
+div .mybtn {
+    display: inline-block;
+    text-align: center;
+    margin: 5px;
+    height: 25px;
+    width: 15px;
+    color: black;
+    cursor: pointer;    
+}
+.cart-container {
+    margin: auto;
+    text-align: center;
+}
+.leftPage {
+    display: inline-block;
+    width: 45%;
+}
+.rightPage {
+    display: inline-block;
+    width: 45%;
+    height: 100vh;
+    vertical-align: top; 
+    background: #F0F0F0;
+}
+
+.leftPage h6, .rightPage h6 {
+    display: inline-block;
+    font-weight: 500;
+}
+.small-container {
+    display: flex;
+    justify-content: space-between;
+}
+.leftPage .total {
+    display: inline-block;
+    font-weight: 500;
+    margin-top: 20px;
+}
+.leftPage .output {
+    display: inline-block;
+    font-size: large;
+    margin-top: 20px;
+}
+/*ShoppingCart media queries*/
+@media screen and (max-width: 1295px) {
+    .ItemsRow .sum-item {
+        padding-top: 20px;
+    }
+}
+@media screen and (max-width: 890px) {
+    .leftPage, .rightPage {
+        display: block;
+        margin: auto;
+        width: 80%;
+        box-sizing: border-box;
+    }
+    .cart-container h6 {
+        padding: 2%;
+    }
+}
+@media screen and (max-width: 506px) {
+    .leftPage, .rightPage {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .ItemsRow .image-29 {
+        height: 40px;
+    }
+    .ItemsRow img {
+        height: 85%;
+    }
+    
+}
+@media screen and (max-width: 355px) {
+    .leftPage, .rightPage {
+        width: 98%;
+    }
+}
+/* Nav */
+.Nav {
+    background: #e0e0e0;
+}
+.myLogo {
+    display: inline-block;
+    margin: 5px;
+    padding: 20px 30px;
+}
+.myLogo .logo-text {
+    font-size: xx-large;
+    color: black;
+}
+.icon {
+    display: none;
+}
+.drop-container {
+    /*relative is needed because we are making the width
+    of the .drop-div 100%. If we don't make this relative,
+    then the width will be 100% of the document body*/
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 30px 5px;
+}
+.drop-hover{
+    padding: 40px;
+    font-size: large;
+    color: black;
+    border-radius: 4px;
+}
+.drop-hover:hover{
+    background: darkgray;
+}
+.drop-div {
+    /*absolute is needed so that when we display this div
+    by hovering over it, it doesn't shift or change the positions
+    of other elements*/
+    position: absolute;
+    display: none;
+}
+.drop-link {
+    padding: 20px 40px;
+    display: block;
+    color: black;
+}
+.drop-div a:hover {
+    background: darkgray;
+}
+.drop-container:hover .drop-div {
+    background: #e0e0e0;
+    display: block;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+/*the problem with the position of cart was that it was wrongly 
+assumed that .cart is a child of .drop-container. But in reality,
+when .cart is given a position, .drop-container now has that position as well
+*/
+.cart {
+    position: absolute;
+    right: 10px;
+}
+/* Media Queries for Nav*/
+@media screen and (max-width: 775px) {
+    .icon {
+        display: inline-block;
+        position: absolute;
+        color: black;
+        margin-top: 5px;
+        padding: 12px;
+        border-radius: 2px;
+        right: 20px;
+        font-size: 300%;
+    }
+    .icon:hover {
+        background: darkgray;
+    }
+    .icon:after {
+        content: ' \2261';
+    }
+    .drop-container {
+      display: none;
+    }
+    .cart {
+        position: static;
+    }
+    .drop-div {
+        position: static; /*doesn't overlap with other drop-div*/
+        /*display: block; /*visible when sandwitch button is clicked*/
+    }
+    .drop-hover {
+        display: block;
+        color: black;
+        font-size: 120%;
+        padding: 20px;
+    }
+    .drop-hover:hover {
+        background: #e0e0e0;
+        cursor: auto;
+    }
+    .single:hover {
+        background: darkgray;
+        cursor: pointer;
+    }
+    .drop-containerOpen {
+        display: block;
+        /*keeps drop-link from everlapping with other elements*/
+        overflow: hidden;
+    }
+    .drop-containerOpen .drop-div {
+        display: block;
+        height: 0px;
+        transition: height 1s;
+    }
+    .drop-containerOpen .drop-div .drop-link {
+        display: none;
+    }
+    .drop-containerOpen:hover .attire{
+        height: 190px;
+    }
+    .drop-containerOpen:hover .gadgets{
+        height: 130px;
+    }
+    .drop-containerOpen:hover .drop-link {
+        display: block;
+    }
+}
+@media screen and (min-width: 776px) { /*don't make width 775px as well or it will look bad at 775px*/
+    .drop-containerOpen {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        margin: 30px 5px;
+    }
+    .drop-containerOpen:hover .drop-div {
+        background: #e0e0e0;
+        width: 100%;
+        display: block;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    .cart {
+        position: absolute;
+        right: 0px;
+    }
+}
+
+/* Home */
+.home-parent {
+    max-height: 4500px;
+    overflow: hidden;
+}
+.home-background-img {
+    height: 400px;
+    overflow: hidden;
+}
+
+.display-section {
+    /*height: 360px;*/
+    max-height: 1500px;
+    padding: 15px;
+    text-align: center;
+    overflow: hidden;
+}
+.display-coat {
+    display: inline-block;
+    margin: 1%;
+}
+.display-section .image-container {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 300px;
+    width: 280px;
+    text-align: center;
+    overflow: hidden;
+}
+.display-section .item-29 img{
+    margin: 20% 0;
+}
+.display-section .image-container img {
+    width: 90%;
+}
+
+.home-parent .gift-pic {
+    max-height: 400px;
+    overflow: hidden;
+}
+.gift-pic img {
+    width: 100%;
+}
+.home-parent .gift-sec-header{
+    text-align: center;
+    margin: 30px;
+}
+.home-parent .gift-sec{
+    max-height: 1500px;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.home-parent .gift-display {
+    display: inline-block;
+    background: #e0e0e0; 
+    color: black;
+    height: 340px;
+    width: 270px;
+    margin: 2%;
+}
+.gift-display .gift-item {
+    display: inline-block;
+    text-align: center;
+    margin: 5%;
+    overflow: hidden;
+    background: white;
+}
+
+.gift-display .gift-item img {
+    width: 100%;
+}
+.gift-item .gift-title {
+    font-weight: bold;
+}
+/*display section media queries*/
+@media screen and (max-width: 1250px) { 
+    .display-section .image-container {
+        height: 270px;
+        width: 220px;
+    }
+}
+@media screen and (max-width: 990px) { 
+    .display-section .image-container {
+        height: 250px;
+        width: 200px;
+    }
+}
+@media screen and (max-width: 905px) { 
+    .display-section .image-container {
+        height: 300px;
+        width: 280px;
+    }
+}
+/*gift section queries*/
+@media screen and (max-width: 1285px) {
+    .home-parent .gift-display {
+        height: 310px;
+        width: 240px;
+    }
+}
+@media screen and (max-width: 1145px) {
+    .home-parent .gift-display {
+        height: 280px;
+        width: 220px;
+    }
+}
+@media screen and (max-width: 1050px) {
+    .home-parent .gift-display {
+        height: 260px;
+        width: 200px;
+    }
+}
+@media screen and (max-width: 953px) {
+    .home-parent .gift-display {
+        height: 240px;
+        width: 180px;
+    }
+}
+@media screen and (max-width: 856px) {
+    .home-parent .gift-display {
+        height: 340px;
+        width: 270px;
+    }
+}
+/* Description */
+.description-container {
+    max-height: 1500px;
+    min-height: 800px;
+    padding: 5%;
+    text-align: center;
+}
+.description-left {
+    vertical-align: top;
+    display: inline-block;
+    max-height: 700px;
+    width: 50%;
+    overflow: hidden;
+    text-align: center;
+}
+.desc-item {
+    height: 500px;
+}
+.desc-item img {
+    height: 95%;
+    margin: 2%;
+}
+.desc-item .image-29 {
+    height: 75%;
+    margin: 2%;
+}
+.description-right {
+    display: inline-block;
+    max-height: 700px;
+    width: 37%;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.description-price {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #bbb;
+    font-size: 120%;
+}
+.description-info {
+    margin: 20px 0;
+    text-align: left;
+}
+.description-right .desc-addcart {
+    display: inline-block;
+    margin: 20px 0;
+    width: 100%;
+    height: 70px;
+    background: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+/*description media queries*/
+@media screen and (max-width: 1300px) {
+    .desc-item {
+        height: 400px;
+    }
+}
+@media screen and (max-width: 1055px) {
+    .desc-item {
+        height: 350px;
+    }
+}
+@media screen and (max-width: 920px) {
+    .desc-item {
+        height: 300px;
+    }
+}
+@media screen and (max-width: 890px) {
+    .description-left .image-29 {
+        margin-top: 10%;
+    }
+}
+@media screen and (max-width: 750px) {
+    .description-right, .description-left {
+        display: block;
+        margin: auto;
+        width: 80%;
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 495px) {
+    .desc-item {
+        height: 250px;
+    }
+}
+@media screen and (max-width: 415px) {
+    .desc-item {
+        height: 190px;
+    }
+}
+
+/* ProdNav */
+.prod-container {
+    text-align: center;
+    overflow: hidden;
+    max-height: 6000px;
+    width: 85%;
+    margin: auto;
+    padding: 2% 0;
+}
+.prod-page-image {
+    margin-top: 20px;
+    max-height: 400px;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+.prod-page-image img {
+    width: 70%;
+}
+.prod-container .prod-item {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px;
+    height: 400px;
+    width: 320px;
+    overflow: hidden;
+    text-align: center;
+}
+.prod-container .prod-item img {
+    height: 80%;
+}
+.prod-item .prod-link {
+  color: black;
+}
+
+.prod-item .prod-name {
+    font-weight: bold;
+    margin: 5px;
+}
+
+@media screen and (max-width: 1274px) {
+    .prod-container {
+        width: 97%;
+    }
+}
+@media screen and (max-width: 1114px) {
+    .prod-container .prod-item {
+        height: 330px;
+        width: 280px;
+    }
+}
+@media screen and (max-width: 989px) {
+    .prod-container .prod-item {
+        height: 400px;
+        width: 320px;
+    }
+}
+@media screen and (max-width: 745px) {
+    .prod-container .prod-item {
+        height: 350px;
+        width: 290px;
+    }
+}
+@media screen and (max-width: 681px) {
+    .prod-container {
+        width: 100%;
+    }
+    .prod-container .prod-item {
+        height: 410px;
+        width: 330px;
+    }
+}
+@media screen and (max-width: 374px) {
+    .prod-container .prod-item {
+        height: 340px;
+        width: 280px;
+    }
+}
+/*Footer*/
+.footer {
+    max-height: 500px; 
+    background: #e0e0e0;
+}
+.footer-container {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-right-sec, .footer-left-sec {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+}
+.footer-right-sec {
+    padding: 25px;
+}
+.footer-main-list {
+    display: inline-block;
+    margin: 15px;
+}
+.footer-main-list h6 {
+    margin: 10px; /*gets rid of space around it*/
+}
+.footer-low-list {
+    list-style: none;
+    padding: 0; /*makes child li's go align to the left*/
+}
+.footer-low-list a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+.footer-low-list li {
+    display: block;
+    margin: 10px;
+}

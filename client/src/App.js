@@ -13,7 +13,7 @@ import ProdNav from './Components/ProdNav'
 const stripePromise = loadStripe(process.env.REACT_APP_PUBLIC_KEY)
 
 function App() {
-  
+  console.log(process.env.REACT_APP_PUBLIC_KEY)
   return (
     <Elements stripe={stripePromise}>
       <Router>

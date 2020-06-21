@@ -10,10 +10,10 @@ import Description from './Components/Description';
 import Footer from './Components/Footer'
 import ProdNav from './Components/ProdNav'
 
-const stripePromise = loadStripe('pk_test_gLbVQGMundfPzbBtyb70I1dN006qOa1TiH')
+const stripePromise = loadStripe(process.env.REACT_APP_PUBLIC_KEY)
 
 function App() {
-  console.log(process.env.REACT_APP_PUBLIC_KEY)
+  console.log(process.env)
   return (
     <Elements stripe={stripePromise}>
       <Router>

@@ -4,8 +4,6 @@ const app = express();
 const path = require('path');
 const stripe = require('stripe')(process.env.SECRET_KEY);
 
-console.log(process.env.SECRET_KEY)
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -22,7 +22,7 @@
     "stripe": "^8.56.0"
   },
   "devDependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "concurrently": "^5.2.0",
     "nodemon": "^2.0.4"
   }
